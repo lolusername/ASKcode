@@ -12,7 +12,7 @@ if (process.env.NODE_ENV !== "production") {
 console.log(process.argv);
 const app = express();
 
-const port = 6600;
+const port = 5000;
 
 // Set your OpenAI API key
 const api_key = process.env.API_KEY;
