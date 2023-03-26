@@ -3,7 +3,7 @@
 
 ## Project Description
 
-<!-- todo -->
+ASkode is a personal coding assistant that uses OpenAI's GPT-3 to provide answers to coding questions based on the codebase in your local directory. Simply send a POST request to the app's 'ask' route with a JSON body containing your question, and ASkode will generate an answer for you.
 
 ## Installation and Setup
 
