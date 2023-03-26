@@ -14,7 +14,7 @@ To use this app, follow these steps:
 3. Run the command "npm install" to install the required dependencies.
 4. Set the environment variable "API_KEY" to your OpenAI API key.
 5. Set the path to your local directory containing the code files by passing it as a command line argument when launching the app: ` npm run start -- /path/to/your/code `
-6. go to the home page (<http://127.0.0.1:6600/>) or (<http://localhost:6600/>)
+6. go to the home page (<http://127.0.0.1:5000/>) or (<http://localhost:5000/>)
 
 
 ## Usage
