@@ -9,7 +9,8 @@ const util = require("util");
 const app = express();
 // const functions = require("firebase-functions");
 const exp = require("constants");
-const port = process.env.PORT || 8800;
+const port = 8800;
+
 const openai_api_key = process.env.OPENAI_API_KEY;
 const CODE_DIRECTORY = process.argv[2] || "./repo";
 
