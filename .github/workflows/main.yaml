@@ -8,5 +8,5 @@ jobs:
     stage: deploy
     steps:
       - name: ssh into
-      - run: |
-        ssh root@104.236.71.44
+        run: |
+          ssh root@104.236.71.44
