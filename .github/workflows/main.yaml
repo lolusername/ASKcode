@@ -6,13 +6,7 @@ on:
 jobs:
   deploy:
     stage: deploy
-    script: |
-      echo "${{ secrets.SSH_KEY }}" > private_key.pem
-      chmod 600 private_key.pem
-      ssh -i private_key.pem -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.DROPLET_IP }} << EOF
-        cd /path/to/your/application
-        git pull origin master
-        npm install
-        npm run build
-        pm2 restart app
-      EOF
+    steps:
+      - name: ssh into
+      - run: |
+        ssh root@104.236.71.44
