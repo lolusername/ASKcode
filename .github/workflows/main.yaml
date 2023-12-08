@@ -9,4 +9,4 @@ jobs:
     steps:
       - name: ssh into
         run: |
-          ssh root@104.236.71.44
+          ssh -T root@104.236.71.44
