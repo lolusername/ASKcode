@@ -4,7 +4,7 @@ deploy:
     echo "${{ secrets.SSH_KEY }}" > private_key.pem
     chmod 600 private_key.pem
     ssh -i private_key.pem -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.DROPLET_IP }} << EOF
-      cd /path/to/your/application
+      cd /var/www/ASKcode
       git pull origin master
       npm install
       npm run build
