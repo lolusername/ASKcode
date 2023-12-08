@@ -5,7 +5,7 @@ on:
 
 jobs:
   deploy:
-    stage: deploy
+    runs-on: ubuntu-latest
     steps:
       - name: ssh into
         run: |
