@@ -7,7 +7,6 @@ const path = require("path");
 require("dotenv").config();
 const util = require("util");
 const app = express();
-// const functions = require("firebase-functions");
 const exp = require("constants");
 const port = 8800;
 
