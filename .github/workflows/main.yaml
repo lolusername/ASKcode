@@ -10,13 +10,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Create SSH key
+        env:
+          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+        run: |
+          echo "$SSH_PRIVATE_KEY" > private.key
+          chmod 400 private.key
+
       - name: Setup SSH Keys
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
           ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > private.key
-          chmod 600 private.key
           ssh-add private.key
 
       - name: Deploy
