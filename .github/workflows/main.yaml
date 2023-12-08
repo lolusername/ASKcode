@@ -2,15 +2,17 @@ on:
   push:
     branches:
       - master
-deploy:
-  stage: deploy
-  script: |
-    echo "${{ secrets.SSH_KEY }}" > private_key.pem
-    chmod 600 private_key.pem
-    ssh -i private_key.pem -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.DROPLET_IP }} << EOF
-      cd /var/www/ASKcode
-      git pull origin master
-      npm install
-      npm run build
-      pm2 restart app
-    EOF
+
+jobs:
+  deploy:
+    stage: deploy
+    script: |
+      echo "${{ secrets.SSH_KEY }}" > private_key.pem
+      chmod 600 private_key.pem
+      ssh -i private_key.pem -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.DROPLET_IP }} << EOF
+        cd /path/to/your/application
+        git pull origin master
+        npm install
+        npm run build
+        pm2 restart app
+      EOF
