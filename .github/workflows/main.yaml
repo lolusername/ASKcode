@@ -7,6 +7,22 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: ssh into
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup SSH Keys
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
-          ssh -T root@104.236.71.44
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+          ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
+      - name: Deploy
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+          ssh -T -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.DROPLET_IP }} << EOF
+            cd /var/www/ASKcode
+            git pull origin master
+            npm install
+            npm run build
+            pm2 restart app
+          EOF
