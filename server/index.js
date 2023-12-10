@@ -11,7 +11,7 @@ const exp = require("constants");
 const port = 8800;
 
 const openai_api_key = process.env.OPENAI_API_KEY;
-const CODE_DIRECTORY = process.argv[2] || "./repo";
+const CODE_DIRECTORY = "./repo";
 
 if (!openai_api_key) {
   console.error("no openai environment variable.");
@@ -35,7 +35,7 @@ app.post("/ask", async (req, res) => {
     const answer = await getAnswerFromGPT(codeContent, question, openai);
     res.json({ answer });
   } catch (error) {
-    console.error(error);
+    console.error(error.response);
     res.status(500).json({ error });
   }
 });
