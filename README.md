@@ -1,4 +1,4 @@
-# API-ASKCODE
+# ASKCODE: GITHUB REPOSITORY ADVISOR
 
 ## Description
 This project is a demo showcasing interesting use cases for the GPT-4 model from OpenAI. It provides an API for querying specific questions related to a codebase and receiving intelligent responses.
